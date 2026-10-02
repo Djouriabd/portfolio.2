@@ -1,0 +1,91 @@
+.frame {
+  position: relative;
+  width: min(100%, 470px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  animation: float 9s ease-in-out infinite;
+}
+
+.defs {
+  position: absolute;
+}
+
+/* dotted halo peeking out behind the top-left of the photo */
+.dots {
+  position: absolute;
+  inset: -14% 6% 8% -14%;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.85) 1.6px, transparent 2px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(circle at 45% 45%, #000 40%, transparent 70%);
+  mask-image: radial-gradient(circle at 45% 45%, #000 40%, transparent 70%);
+  opacity: 0.8;
+}
+
+.shape {
+  position: absolute;
+  inset: 0;
+  clip-path: url(#scallop);
+  animation: turn 60s linear infinite;
+}
+
+.photo {
+  position: absolute;
+  inset: 0;
+  background: #f4eefb;
+  animation: turn 60s linear infinite reverse;
+}
+
+.photo img {
+  object-fit: cover;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 100%;
+  padding: 18%;
+  color: #7a4bc0;
+  text-align: center;
+}
+
+.placeholder span {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.placeholder small {
+  font-size: 0.72rem;
+  color: #9b86b8;
+}
+
+.sparkleTop {
+  position: absolute;
+  top: -12%;
+  left: 2%;
+}
+
+.sparkleBottom {
+  position: absolute;
+  right: -6%;
+  bottom: -10%;
+}
+
+@keyframes turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}

@@ -1,0 +1,59 @@
+.radar {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.frame {
+  fill: none;
+  stroke: #e2dee7;
+  stroke-width: 2.5;
+  stroke-linejoin: miter;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+:global(.is-visible) .frame {
+  animation: draw 2.2s var(--ease-out) forwards;
+}
+
+.data {
+  transform-box: view-box;
+  transform-origin: 250px 250px;
+  transform: scale(0) rotate(-40deg);
+  transition: transform 1.6s var(--ease-out) 0.5s;
+}
+
+:global(.is-visible) .data {
+  transform: none;
+}
+
+.fill {
+  fill: rgba(122, 75, 192, 0.85);
+  stroke: #9b6ae0;
+  stroke-width: 2;
+  animation: pulse 6s ease-in-out infinite;
+}
+
+.grid {
+  fill: none;
+  stroke: rgba(214, 190, 255, 0.45);
+  stroke-width: 1.5;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    fill: rgba(122, 75, 192, 0.85);
+  }
+  50% {
+    fill: rgba(150, 95, 225, 0.92);
+  }
+}

@@ -1,0 +1,36 @@
+.layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--orb) 0%, transparent 68%);
+  filter: blur(40px);
+  opacity: 0;
+  animation: breathe var(--dur, 12s) ease-in-out var(--delay, 0s) infinite;
+}
+
+/* come and go: fade in, drift a little, fade out */
+@keyframes breathe {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.75);
+  }
+  45% {
+    opacity: 0.9;
+    transform: translate(30px, -20px) scale(1.05);
+  }
+  60% {
+    opacity: 0.85;
+    transform: translate(40px, -10px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.75);
+  }
+}

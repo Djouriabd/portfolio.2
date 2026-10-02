@@ -1,0 +1,12 @@
+.works {
+  position: relative;
+  padding-block: clamp(60px, 8vw, 120px) clamp(80px, 10vw, 140px);
+  overflow: hidden;
+}
+
+.arc {
+  top: -40px;
+  left: -60px;
+  width: clamp(240px, 36vw, 520px);
+  height: clamp(80px, 12vw, 170px);
+}

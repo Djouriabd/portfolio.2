@@ -1,0 +1,126 @@
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(520px, 92svh, 900px);
+  padding: 120px var(--gutter) 80px;
+  overflow: hidden;
+}
+
+.squiggle {
+  top: -20px;
+  left: -10px;
+  width: clamp(160px, 18vw, 260px);
+  height: clamp(200px, 23vw, 330px);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  display: flex;
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(3.4rem, 14.4vw, 13.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #d9d6dc;
+  background: none;
+}
+
+.letter {
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.35em) rotate(4deg);
+  filter: blur(8px);
+  animation: rise 1.2s var(--ease-out) forwards;
+  animation-delay: calc(0.2s + var(--i) * 0.08s);
+}
+
+.burst {
+  position: absolute;
+  z-index: -1;
+  top: -0.04em;
+  left: 0.08em;
+  width: 0.56em;
+  height: 0.56em;
+  opacity: 0;
+  animation: pop 1s var(--ease-out) 1.1s forwards;
+}
+
+.bigStar {
+  position: absolute;
+  top: -0.08em;
+  left: -0.1em;
+  width: 1.1em;
+  height: 1.1em;
+  /* stretched, tilted 4-point star like the design */
+  transform: rotate(-12deg) scaleX(0.85);
+  opacity: 0;
+  animation: pop 1.1s var(--ease-out) 1.3s forwards;
+  filter: drop-shadow(0 0 30px rgba(122, 75, 192, 0.55));
+}
+
+.by {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0.4em 0 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.1rem, 2.4vw, 2.2rem);
+  color: #d9d6dc;
+  opacity: 0;
+  animation: fadeIn 1.2s ease 1.4s forwards;
+}
+
+.rule {
+  display: block;
+  width: clamp(28px, 3.6vw, 52px);
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+}
+
+.rule:last-child {
+  width: clamp(44px, 5.4vw, 76px);
+}
+
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    scale: 0.2;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 70svh;
+  }
+}

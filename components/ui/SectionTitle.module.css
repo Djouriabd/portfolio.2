@@ -1,0 +1,42 @@
+.wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(18px, 3vw, 40px);
+  text-align: center;
+}
+
+.stars {
+  display: flex;
+  gap: clamp(6px, 1.2vw, 20px);
+}
+
+.title {
+  position: relative;
+  margin: 0;
+  padding-bottom: 14px;
+  font-size: clamp(2rem, 4.6vw, 4rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #d9d5de;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  left: 2%;
+  right: 2%;
+  bottom: 0;
+  height: 2px;
+  background: var(--purple-strong);
+  transform: scaleX(0);
+  transition: transform 1.2s var(--ease-out) 0.3s;
+}
+
+:global(.is-visible) .title::after {
+  transform: scaleX(1);
+}

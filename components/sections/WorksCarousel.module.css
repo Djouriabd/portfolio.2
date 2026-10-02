@@ -1,0 +1,148 @@
+.carousel {
+  margin-top: clamp(48px, 7vw, 110px);
+}
+
+.track {
+  --gap: clamp(20px, 3.4vw, 48px);
+  display: flex;
+  gap: var(--gap);
+  /* room so the hovered card's lift and glow aren't clipped */
+  padding: 24px 6px 64px;
+  margin: -24px -6px -40px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  cursor: grab;
+  outline: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track:focus-visible {
+  border-radius: 24px;
+  box-shadow: inset 0 0 0 2px var(--purple);
+}
+
+.dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+.dragging a {
+  pointer-events: none;
+}
+
+/* 3 cards visible on desktop, 2 on tablets, 1¼ on phones */
+.slide {
+  flex: 0 0 calc((100% - var(--gap) * 2) / 3);
+  scroll-snap-align: start;
+}
+
+@media (max-width: 960px) {
+  .slide {
+    flex-basis: calc((100% - var(--gap)) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .slide {
+    flex-basis: 80%;
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: clamp(32px, 6vw, 80px);
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: #b3b0b7;
+  cursor: pointer;
+  transition:
+    width 0.45s var(--ease-out),
+    background-color 0.3s ease;
+}
+
+.dot:hover {
+  background: #e5e2e8;
+}
+
+.dotActive {
+  width: 42px;
+  background: var(--purple);
+}
+
+.dotActive:hover {
+  background: var(--purple);
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s var(--ease-out);
+}
+
+.arrow:hover:not(:disabled) {
+  background: var(--purple);
+  border-color: var(--purple);
+  transform: scale(1.06);
+}
+
+.arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+@media (max-width: 520px) {
+  .dots {
+    padding: 14px 22px;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .dotActive {
+    width: 28px;
+  }
+
+  .arrow {
+    width: 46px;
+    height: 46px;
+  }
+}

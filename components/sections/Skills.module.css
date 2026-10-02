@@ -1,0 +1,156 @@
+.skills {
+  position: relative;
+  padding-block: clamp(80px, 12vw, 180px) clamp(60px, 8vw, 100px);
+  overflow: hidden;
+}
+
+.squiggleLeft {
+  top: -4%;
+  left: -2%;
+  width: clamp(140px, 22vw, 320px);
+  height: 70%;
+}
+
+.decoStar {
+  position: absolute;
+  top: 30%;
+  right: 10%;
+}
+
+.stage {
+  position: relative;
+  z-index: 1;
+}
+
+.chart {
+  position: relative;
+  width: min(100%, 520px);
+  margin-inline: auto;
+}
+
+.tools {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tool {
+  --badge: clamp(64px, 7vw, 100px);
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 0;
+  height: 0;
+}
+
+.tool > :first-child {
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: -50% -50%;
+  opacity: 0;
+  scale: 0.3;
+  transition:
+    opacity 0.8s var(--ease-out),
+    scale 0.8s var(--ease-out),
+    rotate 0.45s var(--ease-out),
+    box-shadow 0.45s ease;
+  transition-delay: calc(0.9s + var(--i) * 0.15s), calc(0.9s + var(--i) * 0.15s), 0s, 0s;
+  animation: bob 6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -1.2s);
+}
+
+:global(.is-visible) .tool > :first-child {
+  opacity: 1;
+  scale: 1;
+}
+
+.tool:hover > :first-child {
+  rotate: -8deg;
+  box-shadow: 0 0 40px rgba(184, 102, 255, 0.55);
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  width: clamp(170px, 18vw, 260px);
+  margin: 0;
+  translate: 0 -50%;
+  font-size: clamp(0.78rem, 1.15vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.25;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.8s ease calc(1.2s + var(--i) * 0.15s);
+}
+
+:global(.is-visible) .label {
+  opacity: 1;
+}
+
+.label strong,
+.label span {
+  display: block;
+  font-weight: 600;
+}
+
+.label span {
+  padding-left: 1.2em;
+}
+
+.tool[data-side="right"] .label {
+  left: calc(var(--badge) * 0.5 + 40px);
+}
+
+.tool[data-side="left"] .label {
+  right: calc(var(--badge) * 0.5 + 40px);
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* small screens: the chart sits on top, the tools become a tidy list below it */
+@media (max-width: 900px) {
+  .chart {
+    width: min(100%, 420px);
+  }
+
+  .tools {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 22px;
+    margin-top: 48px;
+  }
+
+  .tool {
+    --badge: 64px;
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: auto;
+    height: auto;
+  }
+
+  .tool > :first-child {
+    position: static;
+    translate: none;
+  }
+
+  .label,
+  .tool[data-side] .label {
+    position: static;
+    width: auto;
+    translate: none;
+  }
+}

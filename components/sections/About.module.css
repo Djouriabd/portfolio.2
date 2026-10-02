@@ -1,0 +1,83 @@
+.about {
+  position: relative;
+  padding-block: clamp(80px, 12vw, 160px) clamp(60px, 8vw, 110px);
+}
+
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(40px, 7vw, 120px);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.heyo {
+  margin: 0;
+  font-size: clamp(3.6rem, 8.4vw, 7.6rem);
+  font-weight: 700;
+  line-height: 0.95;
+}
+
+.heyoLine {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.line {
+  flex: 0 1 400px;
+  height: 2px;
+  margin-bottom: 0.45em;
+  background: var(--purple);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s var(--ease-out) 0.4s;
+}
+
+:global(.is-visible) .line {
+  transform: scaleX(1);
+}
+
+.heyoSmall {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.2rem, 2.2vw, 2rem);
+  line-height: 1;
+  color: var(--muted);
+}
+
+.text {
+  margin: clamp(18px, 2.2vw, 32px) 0 0;
+  max-width: 640px;
+  font-size: clamp(0.92rem, 1.35vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.contact {
+  margin-top: clamp(40px, 5.5vw, 80px);
+}
+
+.contactTitle {
+  display: inline-block;
+  margin: 0 0 clamp(24px, 3vw, 40px);
+  padding-bottom: 2px;
+  border-bottom: 2px solid var(--purple);
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

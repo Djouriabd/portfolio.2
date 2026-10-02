@@ -1,0 +1,69 @@
+.contact {
+  position: relative;
+  padding-block: clamp(80px, 12vw, 200px) clamp(80px, 12vw, 220px);
+  overflow: hidden;
+}
+
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(40px, 5vw, 80px);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 26px 10px 12px;
+  border-radius: 999px;
+  background: var(--purple);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badgeIcon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  color: #141316;
+}
+
+.heading {
+  margin: clamp(28px, 3.5vw, 44px) 0 0;
+  font-size: clamp(2.2rem, 4.6vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+
+.text {
+  max-width: 660px;
+  margin: clamp(28px, 4.5vw, 60px) 0 0;
+  font-size: clamp(0.9rem, 1.3vw, 1.2rem);
+  font-weight: 600;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.links {
+  margin-top: clamp(40px, 6vw, 80px);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

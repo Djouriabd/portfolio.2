@@ -1,0 +1,32 @@
+.clock {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5ef08f;
+  box-shadow: 0 0 0 0 rgba(94, 240, 143, 0.6);
+  animation: ping 2.4s ease-out infinite;
+}
+
+@keyframes ping {
+  0% {
+    box-shadow: 0 0 0 0 rgba(94, 240, 143, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(94, 240, 143, 0);
+  }
+}

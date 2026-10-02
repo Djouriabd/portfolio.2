@@ -1,0 +1,60 @@
+.badge {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 130px;
+  height: 130px;
+  color: #fff;
+  text-decoration: none;
+  justify-self: end;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  animation: turn 20s linear infinite;
+}
+
+.ring text {
+  fill: var(--muted);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--purple);
+  transition:
+    transform 0.5s var(--ease-out),
+    box-shadow 0.4s ease;
+}
+
+.badge:hover .arrow,
+.badge:focus-visible .arrow {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(184, 102, 255, 0.5);
+}
+
+.badge:hover .ring text {
+  fill: #fff;
+}
+
+@keyframes turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1000px) {
+  .badge {
+    justify-self: start;
+  }
+}

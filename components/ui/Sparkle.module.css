@@ -1,0 +1,57 @@
+.sparkle {
+  display: block;
+  flex-shrink: 0;
+  overflow: visible;
+  animation-duration: var(--dur, 24s);
+  animation-delay: var(--delay, 0s);
+  animation-iteration-count: infinite;
+}
+
+.spin {
+  animation-name: rotate;
+  animation-timing-function: linear;
+}
+
+.spin-reverse {
+  animation-name: rotate;
+  animation-timing-function: linear;
+  animation-direction: reverse;
+}
+
+.wobble {
+  animation-name: wobble;
+  animation-timing-function: ease-in-out;
+}
+
+.twinkle {
+  animation-name: twinkle;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes wobble {
+  0%,
+  100% {
+    transform: rotate(-10deg) scale(1);
+  }
+  50% {
+    transform: rotate(14deg) scale(1.06);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(90deg) scale(0.7);
+    opacity: 0.6;
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

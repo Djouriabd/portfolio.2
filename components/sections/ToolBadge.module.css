@@ -1,0 +1,33 @@
+.badge {
+  display: grid;
+  place-items: center;
+  width: var(--badge, 96px);
+  height: var(--badge, 96px);
+  border-radius: 18%;
+  flex-shrink: 0;
+}
+
+.light {
+  background: #fff;
+}
+
+.canva {
+  border-radius: 50%;
+  background: #d4d2d6;
+  color: #3d3a40;
+  font-family: var(--font-serif), serif;
+  font-size: calc(var(--badge, 96px) * 0.27);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.adobe {
+  width: calc(var(--badge, 96px) * 0.8);
+  height: calc(var(--badge, 96px) * 0.8);
+  border: 4px solid #d9d5de;
+  border-radius: 22%;
+  background: #141316;
+  color: #fff;
+  font-size: calc(var(--badge, 96px) * 0.36);
+  font-weight: 500;
+}
