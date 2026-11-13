@@ -12,7 +12,7 @@ export const profile = {
    * Drop an image in /public (e.g. /public/me.jpg) and set this to "/me.jpg".
    * Leave it null to show the placeholder.
    */
-  photo: null as string | null,
+  photo: "/public/me.jpg",
   email: "rubyaichan@gmail.com",
   timeZone: "Africa/Algiers",
   location: "Algeria",
